@@ -1,0 +1,15 @@
+.funds-page {
+  @apply space-y-4;
+}
+
+.funds-page__header {
+  @apply flex flex-col md:flex-row justify-between md:items-center gap-3;
+}
+
+.funds-page__header h2 {
+  @apply text-xl font-semibold text-slate-900;
+}
+
+.funds-page__header p {
+  @apply text-sm text-slate-500;
+}

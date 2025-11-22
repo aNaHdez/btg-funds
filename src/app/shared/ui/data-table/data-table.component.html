@@ -1,0 +1,25 @@
+<p-table
+  [value]="value"
+  [paginator]="paginator"
+  [rows]="rows"
+  [rowsPerPageOptions]="rowsPerPageOptions"
+  [responsiveLayout]="responsiveLayout"
+  [paginatorDropdownAppendTo]="'body'"
+  styleClass="app-data-table"
+>
+  <!-- Header -->
+  <ng-template pTemplate="header">
+    <ng-container *ngIf="headerTemplate">
+      <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+    </ng-container>
+  </ng-template>
+
+  <!-- Body -->
+  <ng-template pTemplate="body" let-row>
+    <ng-container *ngIf="bodyTemplate">
+      <ng-container
+        *ngTemplateOutlet="bodyTemplate; context: { $implicit: row }"
+      ></ng-container>
+    </ng-container>
+  </ng-template>
+</p-table>

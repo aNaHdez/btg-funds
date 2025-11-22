@@ -1,0 +1,36 @@
+<section class="transactions-page">
+  <header class="transactions-page__header">
+    <h2>Historial de movimientos</h2>
+    <p>
+      Consulta todas tus suscripciones y cancelaciones.
+    </p>
+  </header>
+
+  <ng-container *ngIf="transactions$ | async as txs">
+    <app-data-table
+      [value]="txs"
+      [rows]="10"
+      [rowsPerPageOptions]="[5, 10, 25, 50]"
+    >
+      <ng-template #tableHeader>
+        <tr>
+          <th>Fecha</th>
+          <th>Fondo</th>
+          <th>Tipo</th>
+          <th>Monto</th>
+          <th>Notificación</th>
+        </tr>
+      </ng-template>
+
+      <ng-template #tableBody let-t>
+        <tr>
+          <td>{{ t.createdAt | date: 'MM/dd/yy, h:mm a' }}</td>
+          <td>{{ t.fundName }}</td>
+          <td>{{ t.type === 'SUBSCRIPTION' ? 'Suscripción' : 'Cancelación' }}</td>
+          <td>{{ t.amount | currencyCop }}</td>
+          <td>{{ t.notificationMethod === 'EMAIL' ? 'Email' : t.notificationMethod }}</td>
+        </tr>
+      </ng-template>
+    </app-data-table>
+  </ng-container>
+</section>

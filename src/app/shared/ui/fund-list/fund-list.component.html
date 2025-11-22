@@ -1,0 +1,13 @@
+<div class="fund-list" *ngIf="funds && funds.length; else empty">
+  <app-fund-card
+    *ngFor="let fund of funds"
+    [fund]="fund"
+    (subscribe)="onSubscribe($event)"
+  ></app-fund-card>
+</div>
+
+<ng-template #empty>
+  <p class="fund-list__empty">
+    No hay fondos disponibles.
+  </p>
+</ng-template>

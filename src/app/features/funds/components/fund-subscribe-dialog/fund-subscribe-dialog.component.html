@@ -1,0 +1,68 @@
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [closable]="!loading"
+  [dismissableMask]="!loading"
+  [style]="{ width: '480px', 'max-width': '90vw' }"
+  styleClass="fund-subscribe-dialog__panel"
+  header="Suscribirse a un fondo"
+  (onHide)="onHide()"
+>
+  <div class="fund-subscribe-dialog" *ngIf="fund">
+    <div class="fund-subscribe-dialog__header">
+      <p class="fund-subscribe-dialog__fund-name">{{ fund.name }}</p>
+      <p class="fund-subscribe-dialog__min-amount">
+        Monto mínimo:
+        <strong>{{ fund.minAmount | currencyCop }}</strong>
+      </p>
+    </div>
+
+    <form [formGroup]="form" class="fund-subscribe-dialog__form">
+      <label class="fund-subscribe-dialog__label" for="amount">
+        Monto a suscribir
+      </label>
+
+      <p-inputNumber
+        id="amount"
+        formControlName="amount"
+        [useGrouping]="true"
+        [minFractionDigits]="0"
+        [maxFractionDigits]="0"
+        inputId="amount"
+        inputStyleClass="fund-subscribe-dialog__input"
+      ></p-inputNumber>
+
+      <small class="fund-subscribe-dialog__hint">
+        El monto mínimo para este fondo es
+        <strong>{{ fund.minAmount | currencyCop }}</strong>.
+      </small>
+
+      <small
+        class="fund-subscribe-dialog__error"
+        *ngIf="amountControl?.hasError('required') && amountControl?.touched"
+      >
+        Este campo es obligatorio.
+      </small>
+    </form>
+
+    <div class="fund-subscribe-dialog__actions">
+      <button
+        pButton
+        type="button"
+        label="Cancelar"
+        class="p-button-text"
+        [disabled]="loading"
+        (click)="onHide()"
+      ></button>
+
+      <button
+        pButton
+        type="button"
+        label="Confirmar suscripción"
+        class="p-button"
+        [disabled]="form.invalid || loading"
+        (click)="onConfirm()"
+      ></button>
+    </div>
+  </div>
+</p-dialog>

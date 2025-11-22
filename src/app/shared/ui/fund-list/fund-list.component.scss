@@ -1,0 +1,7 @@
+.fund-list {
+  @apply grid gap-4 md:grid-cols-2 xl:grid-cols-3;
+}
+
+.fund-list__empty {
+  @apply text-sm text-slate-500;
+}

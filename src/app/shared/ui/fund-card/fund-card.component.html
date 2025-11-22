@@ -1,0 +1,45 @@
+<p-card class="fund-card">
+  <ng-template pTemplate="header">
+    <div class="fund-card__header">
+      <span class="fund-card__category-label">
+        {{
+          fund.category === 'FPV'
+            ? 'Fondo de pensiones voluntarias'
+            : 'Fondo de inversión colectiva'
+        }}
+      </span>
+      <span
+        class="fund-card__chip"
+        [ngClass]="{
+          'fund-card__chip--fpv': fund.category === 'FPV',
+          'fund-card__chip--fic': fund.category === 'FIC'
+        }"
+      >
+        {{ fund.category }}
+      </span>
+    </div>
+  </ng-template>
+
+  <div class="fund-card__body">
+    <h3 class="fund-card__title">
+      {{ fund.name }}
+    </h3>
+    <p class="fund-card__min">
+      Monto mínimo:
+      <span>
+        {{ fund.minAmount | currencyCop}}
+      </span>
+    </p>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      type="button"
+      label="Suscribirme"
+      icon="pi pi-arrow-right"
+      class="fund-card__button"
+      (click)="onSubscribeClick()"
+    ></button>
+  </ng-template>
+</p-card>

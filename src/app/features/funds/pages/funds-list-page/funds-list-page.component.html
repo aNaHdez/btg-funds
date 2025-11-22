@@ -1,0 +1,28 @@
+<p-toast></p-toast>
+
+<section class="funds-page">
+  <header class="funds-page__header">
+    <div>
+      <h2>Fondos disponibles</h2>
+      <p>Elige un fondo y define el monto de tu inversión.</p>
+    </div>
+
+    <app-notification-selector
+      [method]="notificationMethod"
+      (methodChange)="onNotificationChange($event)"
+    ></app-notification-selector>
+  </header>
+
+  <app-fund-list
+    [funds]="funds$ | async"
+    (subscribe)="onFundSelected($event)"
+  ></app-fund-list>
+
+  <app-fund-subscribe-dialog
+    [visible]="showDialog"
+    [fund]="selectedFund"
+    [loading]="dialogLoading"
+    (close)="onDialogClose()"
+    (confirm)="onConfirmSubscription($event)"
+  ></app-fund-subscribe-dialog>
+</section>

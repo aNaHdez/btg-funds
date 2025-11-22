@@ -1,0 +1,15 @@
+.balance-card {
+  @apply px-4 py-2 rounded-xl bg-slate-100 border border-slate-200 shadow-sm flex flex-col items-end;
+}
+
+.balance-card__label {
+  @apply text-xs text-slate-500 uppercase tracking-wide;
+}
+
+.balance-card__amount {
+  @apply text-lg font-semibold text-btgBlue;
+}
+
+.balance-card__name {
+  @apply text-xs text-slate-500;
+}

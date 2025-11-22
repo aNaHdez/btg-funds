@@ -1,0 +1,11 @@
+<div class="notification-selector">
+  <p-select
+    [options]="options"
+    optionLabel="label"
+    optionValue="value"
+    [ngModel]="method"
+    (ngModelChange)="onChange($event)"
+    placeholder="Método de notificación"
+    class="w-full md:w-56"
+  ></p-select>
+</div>

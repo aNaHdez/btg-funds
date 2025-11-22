@@ -1,0 +1,79 @@
+:host {
+  display: block;
+}
+
+/* Panel del dialog de PrimeNG usando Tailwind */
+:host ::ng-deep .fund-subscribe-dialog__panel {
+  .p-dialog {
+    @apply rounded-3xl overflow-hidden;
+  }
+
+  .p-dialog-header {
+    @apply bg-slate-950 text-slate-50 font-semibold text-xl px-7 py-5 border-b border-slate-800;
+  }
+
+  .p-dialog-content {
+    @apply bg-slate-950 text-slate-100 px-7 py-6;
+  }
+
+  .p-dialog-header-icon {
+    @apply text-slate-400 hover:text-slate-200;
+  }
+}
+
+/* Contenido interno del dialog (tus clases) */
+.fund-subscribe-dialog {
+  @apply flex flex-col gap-6;
+}
+
+.fund-subscribe-dialog__header {
+  @apply flex flex-col gap-1;
+}
+
+.fund-subscribe-dialog__fund-name {
+  @apply text-lg font-semibold;
+}
+
+.fund-subscribe-dialog__min-amount {
+  @apply text-sm text-slate-400;
+
+  strong {
+    @apply text-slate-50;
+  }
+}
+
+.fund-subscribe-dialog__form {
+  @apply flex flex-col gap-2;
+}
+
+.fund-subscribe-dialog__label {
+  @apply text-sm font-medium text-slate-200;
+}
+
+/* InputNumber interno */
+:host ::ng-deep .fund-subscribe-dialog__input {
+  @apply w-full rounded-xl border border-emerald-500 bg-slate-900 text-slate-50 px-3 py-3 text-base;
+}
+
+/* Hint debajo del input */
+.fund-subscribe-dialog__hint {
+  @apply text-xs text-slate-400;
+}
+
+/* Error de validación */
+.fund-subscribe-dialog__error {
+  @apply text-xs text-red-500;
+}
+
+/* Botones */
+.fund-subscribe-dialog__actions {
+  @apply flex justify-end gap-3 mt-3;
+
+  :host ::ng-deep .p-button-text {
+    @apply text-emerald-400;
+  }
+
+  :host ::ng-deep .p-button {
+    @apply rounded-xl px-5 py-3 font-semibold;
+  }
+}

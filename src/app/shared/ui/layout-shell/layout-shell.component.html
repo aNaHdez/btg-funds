@@ -1,0 +1,32 @@
+<div class="app-background">
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-header__left">
+        <div class="logo-circle">BTG</div>
+        <div class="logo-text">
+          <h1>BTG Manejo de Fondos</h1>
+          <p>Simulador de suscripciones FPV / FIC</p>
+        </div>
+      </div>
+      <div class="app-header__right">
+        <app-balance-badge></app-balance-badge>
+      </div>
+    </header>
+
+    <nav class="app-tabs">
+      <a routerLink="/funds" routerLinkActive="app-tabs__link--active" class="app-tabs__link">
+        Fondos disponibles
+      </a>
+      <a routerLink="/portfolio" routerLinkActive="app-tabs__link--active" class="app-tabs__link">
+        Mi portafolio
+      </a>
+      <a routerLink="/transactions" routerLinkActive="app-tabs__link--active" class="app-tabs__link">
+        Historial
+      </a>
+    </nav>
+
+    <main class="app-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

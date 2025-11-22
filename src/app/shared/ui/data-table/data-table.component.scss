@@ -1,0 +1,53 @@
+:host {
+  @apply block w-full;
+}
+
+/* Contenedor de la tabla */
+:host ::ng-deep .app-data-table {
+  @apply w-full bg-white rounded-2xl shadow-sm border border-slate-200;
+}
+
+/* Encabezado */
+:host ::ng-deep .app-data-table .p-datatable-thead>tr>th {
+  @apply bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500 border-b border-slate-200;
+}
+
+/* Fila por defecto: blanca */
+:host ::ng-deep .app-data-table .p-datatable-tbody>tr {
+  @apply bg-white;
+}
+
+/* Celdas */
+:host ::ng-deep .app-data-table .p-datatable-tbody>tr>td {
+  @apply text-sm text-slate-700 border-b border-slate-100;
+}
+
+/* Hover: gris muy suave, como la tarjeta */
+:host ::ng-deep .app-data-table .p-datatable-tbody>tr:hover {
+  @apply bg-slate-50;
+}
+
+/* Mensaje de "sin datos" */
+:host ::ng-deep .app-data-table .p-datatable-emptymessage>td {
+  @apply text-sm text-slate-500;
+}
+
+/* Paginador */
+:host ::ng-deep .p-paginator {
+  @apply border-t border-slate-200 bg-white;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-page.p-highlight {
+  @apply bg-btgBlue text-white border-transparent shadow-sm;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-page {
+  @apply text-sm text-slate-600;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-first,
+:host ::ng-deep .p-paginator .p-paginator-prev,
+:host ::ng-deep .p-paginator .p-paginator-next,
+:host ::ng-deep .p-paginator .p-paginator-last {
+  @apply text-slate-500;
+}

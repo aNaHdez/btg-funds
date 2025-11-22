@@ -1,0 +1,19 @@
+.portfolio-page {
+  @apply space-y-4;
+}
+
+.portfolio-page__header h2 {
+  @apply text-xl font-semibold text-slate-900;
+}
+
+.portfolio-page__header p {
+  @apply text-sm text-slate-500;
+}
+
+.portfolio-page__empty {
+  @apply text-sm text-slate-500;
+}
+
+.portfolio-page__actions {
+  @apply text-center;
+}

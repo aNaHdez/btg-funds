@@ -1,0 +1,9 @@
+<div class="balance-card" *ngIf="account$ | async as account">
+  <div class="balance-card__label">Saldo disponible</div>
+  <div class="balance-card__amount">
+    {{ account.balance | currencyCop }}
+  </div>
+  <div class="balance-card__name">
+    {{ account.name }}
+  </div>
+</div>

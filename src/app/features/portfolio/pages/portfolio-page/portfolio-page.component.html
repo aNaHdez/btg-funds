@@ -1,0 +1,52 @@
+<section class="portfolio-page">
+  <p-toast></p-toast>
+  <p-confirmDialog></p-confirmDialog>
+
+  <header class="portfolio-page__header">
+    <h2>Mi portafolio</h2>
+    <p>Revisa tus suscripciones activas y cancela las que ya no necesites.</p>
+  </header>
+
+  <ng-container *ngIf="subscriptions$ | async as subs">
+    <p *ngIf="!subs.length" class="portfolio-page__empty">
+      Aún no tienes suscripciones activas. Suscríbete a un fondo desde la
+      sección <strong>Fondos</strong>.
+    </p>
+
+    <app-data-table
+      *ngIf="subs.length"
+      [value]="subs"
+      [rows]="10"
+      [rowsPerPageOptions]="[5, 10, 25, 50]"
+    >
+      <ng-template #tableHeader>
+        <tr>
+          <th>Fondo</th>
+          <th>Categoría</th>
+          <th>Monto</th>
+          <th>Fecha</th>
+          <th class="portfolio-page__actions">Acciones</th>
+        </tr>
+      </ng-template>
+
+      <ng-template #tableBody let-sub>
+        <tr>
+          <td>{{ sub.fundName }}</td>
+          <td>{{ sub.category }}</td>
+          <td>{{ sub.amount | currencyCop }}</td>
+          <td>{{ sub.createdAt | date: 'short' }}</td>
+          <td class="portfolio-page__actions">
+            <button
+              pButton
+              type="button"
+              label="Cancelar suscripción"
+              class="p-button p-button-danger"
+              [disabled]="isCancellingId === sub.id"
+              (click)="onCancelClick(sub)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </app-data-table>
+  </ng-container>
+</section>

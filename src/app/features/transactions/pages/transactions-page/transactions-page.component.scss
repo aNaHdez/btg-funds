@@ -1,0 +1,11 @@
+.transactions-page {
+  @apply space-y-4;
+}
+
+.transactions-page__header h2 {
+  @apply text-xl font-semibold text-slate-900;
+}
+
+.transactions-page__header p {
+  @apply text-sm text-slate-500;
+}
